@@ -1,0 +1,38 @@
+.textarea-block {
+    position: relative;
+}
+
+.textarea-block + .input-block{ /* Só é aplicado para textarea-block que tenha outro textarea-block anteriormente, ou seja, apenas o segundo e o terceiro */
+    margin-top: 1.4rem;
+}
+
+.textarea-block label {
+    font-size: 1.4rem;
+}
+
+.textarea-block textarea {
+    width: 100%;
+    height: 16rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0;
+    resize: vertical; /* AQUI É ONDE A GENTE PERMITE OU NÃO AJUSTAR O TAMANHO DA TEXTAREA */
+    min-height: 8rem; /* NÃO DEIXA O USUÁRIO DIMINUIR DEMAIS O TAMANHO */
+    padding: 1.2rem 1.6rem;
+    font: 1.6rem Archivo;
+}
+
+/* Essa alteração abaixo é para colocar o traço roxo sublinhado ao clicarmos no textarea (quando ele estiver em focus) */
+.textarea-block:focus-within::after { /* Vai verificar se dentro do textarea-block existe algum textarea que tenha "focus", ou seja se é selecionável. Se sim, ele vai modificar o textarea-block inteiro */
+/* O after vai inserir um elemento após o textarea-block, quando o seu input estiver com focus */
+    width: calc(100% - 3.2rem);
+    height: 2px;
+    content: '';
+    background: var(--color-primary-light);
+    position: absolute;
+    left: 1.6rem;
+    right: 1.6rem;
+    bottom: 7px;
+}
